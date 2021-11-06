@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="static\css.css" href="img" rel='stylesheet' type="text/css" />
+    <meta charset="UTF-8">
+    {% if reg %}
+        <title>Вход</title>
+    {% else %}
+        <title>Регистрация</title>
+    {% endif %}
+</head>
+<body>
+    <style>
+        body {
+        font-family: 'Lato', sans-serif;
+        }
+
+        .div2 {
+            outline: 2px solid rgb(255, 251, 251);
+            width: 300px;
+            height: 400px;
+            margin:0 auto;
+        }
+    
+        .body2 {
+            background: url(my-image.jpg);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background: linear-gradient(90deg, #aed4b1 , #8d998f, #555353);
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
+    </head>
+    <body class="body2">
+        <div>
+            <div id="header" style="width: 100%;">
+                <h1>
+                    <a href='/' id='atop'>Ru<span style="color: aquamarine;">Pit</span>:</a>
+                    <a href='/' id='atop' style="float: right;">Lili</a> 
+                    {% if new == 1 %}
+                        Вход  
+                        <a href="/register" id='alogin' style="float: right; margin-right: 110px;">Register</a>
+                    {% elif new == 2 %}
+                        Регистрация
+                        <a href="/login" id='alogin' style="float: right; margin-right: 80px;">Login</a>
+                    {% elif new == 3 %}
+                        сменить маил
+                        <a href="/register" id='alogin' style="float: right; margin-right: 110px;">Register</a>
+                    {% elif new == 4 %}
+                        сменить пароль
+                        <a href="/register" id='alogin' style="float: right; margin-right: 110px;">Register</a>
+                    {% endif %}
+                </h1>
+            </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            {% if new == 1 %}
+                <a href="/register" id="about">Register</a>
+                <a href="/new_mail" id="blog">сменить маил</a>
+                <a href="/new_pass" id="projects">сменить пароль</a>
+            {% elif new == 2 %}
+                <a href="/login" id="about">Login</a>
+                <a href="/new_mail" id="blog">сменить маил</a>
+                <a href="/new_pass" id="projects">сменить пароль</a>
+            {% elif new == 3 %}
+                <a href="/login" id="about">Login</a>
+                <a href="/register" id="blog">Register</a>
+                <a href="/new_pass" id="projects">сменить пароль</a>
+            {% elif new == 4 %}
+                <a href="/login" id="about">Login</a>
+                <a href="/register" id="blog">Register</a>
+                <a href="/new_mail" id="projects">сменить маил</a>
+            {% endif %}
+        </div>
+        <div class="div2">
+            {% block content %}
+                {% for post in User %}
+                    <div class="post">
+                        <div class="title">{{ post.login }} ({{ post.formated_date() }})</div>
+                        <div class="content">{{ post.password_page }}</div>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

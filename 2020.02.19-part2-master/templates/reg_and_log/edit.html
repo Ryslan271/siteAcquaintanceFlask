@@ -1,0 +1,54 @@
+<style>
+    a {
+        color: #f3f3f3;
+        border-radius: 2px;
+        font-size: 20px;
+        text-decoration: none;
+        -webkit-transition: .4s ease-out;
+        -webkit-transition-delay: 0.1s;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: #ffffff;
+        font-size: 22px;
+    }
+</style>
+{% extends "bases/base.html" %}
+
+{% block content %}
+<h1 align="center" id="h1_1">Смена mail</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <p align="center">
+        {{ form.login.label }}<br>
+        {{ form.login(class="form-control") }}<br>
+        {% for error in form.login.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p align="center">
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+        {% for error in form.password.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p align="center">
+        {{ form.mail.label }}<br>
+        {{ form.mail(class="form-control", type="mail") }}<br>
+        {% for error in form.mail.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p align="center">{{ message }}</p>
+    {% if log %}<p  align="center"><a href="new_mail">зарегистрироваться</a></p>{% endif %}
+    <p align="center">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+</form>
+{% endblock %}

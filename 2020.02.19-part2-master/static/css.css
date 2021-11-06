@@ -1,0 +1,45 @@
+/*вверхняя панель с Лили*/
+#header {
+    margin-top: 0;
+    width: auto;
+    min-width: 1300px;
+}
+
+#header h1 {
+    padding: 20px;
+    margin: 0;
+    color: #ffffff;
+}
+
+/*ссылка на верхней панели*/
+#atop {
+    font-size: 40px;
+    color: #ffffff;
+	padding: 5px; 
+	border-radius: 2px;
+    margin-top: 2px;
+    font-family: 'Monotype Corsiva';
+    text-decoration: none;
+    -webkit-transition: .4s ease-out;
+    -webkit-transition-delay: 0.1s;
+}
+
+#atop:hover {
+    font-size: 41px;
+}
+
+#div_1 {
+    position: relative;
+    display: inline-block;
+}
+
+#div_1 span {
+    background: #222;
+    color: #fff;
+    border-radius: 2px;
+    position: absolute;
+    right: 40%;
+    bottom: 10px;
+    font-size: 18px;
+    padding: 3px 5px;
+}
